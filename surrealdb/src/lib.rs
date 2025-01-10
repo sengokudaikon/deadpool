@@ -100,8 +100,14 @@ use surrealdb::{
 };
 use deadpool::managed::RecycleError;
 
-// Re-exports
-pub use crate::config::{Config, Credentials};
+deadpool::managed_reexports!(
+    "surrealdb",
+    Manager,
+    managed::Object<Manager>,
+    Error,
+    std::convert::Infallible
+);
+pub use self::{config::Config, config::Credentials};
 pub use deadpool_runtime::Runtime;
 
 /// Error type for SurrealDB pool operations
@@ -226,6 +232,3 @@ impl managed::Manager for Manager {
         Ok(())
     }
 }
-
-/// A connection pool for SurrealDB.
-pub type Pool = managed::Pool<Manager>;
