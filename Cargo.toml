@@ -63,5 +63,6 @@ members = [
     "runtime",
     "sqlite",
     "sync",
+    "surrealdb",
     "examples/*",
 ]
