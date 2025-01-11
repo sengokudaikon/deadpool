@@ -31,6 +31,7 @@ jobs:
           - deadpool-r2d2
           - deadpool-redis
           - deadpool-sqlite
+          - deadpool-surrealdb
           # Examples
           - example-postgres-actix-web
           - example-postgres-benchmark
@@ -101,6 +102,7 @@ jobs:
           - postgres
           - redis
           - sqlite
+          - surrealdb
         feature:
           - rt_tokio_1
           - rt_async-std_1
@@ -112,6 +114,8 @@ jobs:
             feature: postgres
           - crate: diesel
             feature: sqlite
+          - crate: surrealdb
+            feature: surrealdb
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -164,6 +168,7 @@ jobs:
           - { crate: deadpool-postgres, msrv: '1.75.0' }
           - { crate: deadpool-redis, msrv: '1.75.0' }
           - { crate: deadpool-sqlite, msrv: '1.77.0' }
+          - { crate: deadpool-surrealdb, msrv: '1.75.0' }
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -194,6 +199,7 @@ jobs:
           - deadpool-postgres
           - deadpool-redis
           - deadpool-sqlite
+          - deadpool-surrealdb
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -273,6 +279,7 @@ jobs:
           - deadpool-postgres
           - deadpool-redis
           - deadpool-sqlite
+          - deadpool-surrealdb
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

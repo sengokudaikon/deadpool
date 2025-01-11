@@ -128,7 +128,7 @@ impl Config {
     }
 
     /// Creates a new connection pool with the given runtime
-    pub fn create_pool(&self, runtime: Option<Runtime>) -> Result<Pool, Box<dyn std::error::Error>> {
+    pub fn create_pool(&self, runtime: Option<Runtime>) -> crate::Result<Pool> {
         let mgr = Manager::from_config(self);
         let builder = Pool::builder(mgr)
             .max_size(self.max_connections as usize)

@@ -124,6 +124,10 @@ pub enum Error {
     /// Authentication error
     #[error("Authentication error: {0}")]
     Auth(String),
+
+    /// Build error
+    #[error("Build error: {0}")]
+    Build(#[from] managed::BuildError),
 }
 
 /// Result type for SurrealDB pool operations
